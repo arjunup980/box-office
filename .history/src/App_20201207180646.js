@@ -21,10 +21,8 @@ function App() {
         </Route>
 
         <Route>
-          <div>
-            Not Found
-         </div>
-        </Route>
+          This is 404 page
+</Route>
       </Switch>
     </div>
   );
