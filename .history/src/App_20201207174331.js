@@ -8,14 +8,6 @@ function App() {
       <Route exact path="/">
         This is home page
 </Route>
-
-      <Route exact path="/start">
-        This is start page
-</Route>
-
-      <Route>
-        This is 404 page
-</Route>
     </Switch>
   );
 }
