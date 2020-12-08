@@ -15,38 +15,35 @@ const Show = () => {
 
     apiGet(`/shows/${id}?embed[]=seasons&embed[]=cast`)
       .then(results => {
-        if (isMounted) {
+
+        setTimeout(() => {
           setShow(results);
           setIsLoading(false);
-        }
-      })
-  }).catch(err => {
-    if (isMounted) {
-      setError(err.message);
-      setIsLoading(false);
+        }, 2000)
+      }).catch(err => {
+        setError(err.message);
+        setIsLoading(false);
+      });
+
+    return () => {
+      isMounted = false;
     }
+  }, [id]);
 
-  });
+  console.log('show', show);
 
-  return () => {
-    isMounted = false;
+  if (isLoading) {
+    return <div>Data is being Loaded</div>
   }
-}, [id]);
+  if (error) {
+    return <div>Error Occured: {error}</div>
+  }
 
-console.log('show', show);
-
-if (isLoading) {
-  return <div>Data is being Loaded</div>
-}
-if (error) {
-  return <div>Error Occured: {error}</div>
-}
-
-return (
-  <div>
-    this is show page
-  </div>
-)
+  return (
+    <div>
+      this is show page
+    </div>
+  )
 };
 
 export default Show
