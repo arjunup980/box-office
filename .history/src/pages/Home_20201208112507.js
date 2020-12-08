@@ -24,14 +24,14 @@ const Home = () => {
   };
 
 
-
-  return (
-    <MainPageLayout>
-      <input type="text" onChange={onInputChange} onKeyDown={onKeyDown} value={input} />
-      <button type="button" onClick={onSearch}>Search</button>
-
-    </MainPageLayout>
-  )
 };
+return (
+  <MainPageLayout>
+    <input type="text" onChange={onInputChange} value={input} />
+    <button type="button" onClick={onSearch}>Search</button>
+
+  </MainPageLayout>
+)
+}
 
 export default Home
