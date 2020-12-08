@@ -40,9 +40,19 @@ const Home = () => {
         ? results.map(item => (<div key={item.show.id}>{item.show.name}</div>))
         : results.map(item => (
           <div key={item.person.id}>{item.person.name}</div>
-        ));
-    }
 
+        ))
+          (
+
+            {
+              results.map(item => (
+                <div key={item.show.id}>{item.show.name}</div>
+
+              ))
+            }
+          );
+
+    }
     return null;
   }
 

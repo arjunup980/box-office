@@ -42,45 +42,45 @@ const Home = () => {
           <div key={item.person.id}>{item.person.name}</div>
         ));
     }
-
-    return null;
   }
+  return null;
+}
 
 
 
-  return (
-    <MainPageLayout>
-      <input type="text"
-        placeholder="Search for something"
-        onChange={onInputChange}
-        onKeyDown={onKeyDown} value={input} />
-      <div>
-        <label htmlFor="shows-search">
-          Shows
+return (
+  <MainPageLayout>
+    <input type="text"
+      placeholder="Search for something"
+      onChange={onInputChange}
+      onKeyDown={onKeyDown} value={input} />
+    <div>
+      <label htmlFor="shows-search">
+        Shows
         <input
-            id="shows-search"
-            type="radio"
-            value="shows"
-            checked={isShowsSearch}
-            onChange={onRadioChange} />
-        </label>
+          id="shows-search"
+          type="radio"
+          value="shows"
+          checked={isShowsSearch}
+          onChange={onRadioChange} />
+      </label>
 
-        <label htmlFor="actors-search">
-          Actors
+      <label htmlFor="actors-search">
+        Actors
       <input
-            id="actors-search"
-            type="radio"
-            value="people"
-            checked={!isShowsSearch}
-            onChange={onRadioChange} />
-        </label>
+          id="actors-search"
+          type="radio"
+          value="people"
+          checked={!isShowsSearch}
+          onChange={onRadioChange} />
+      </label>
 
-      </div>
-      <button type="button" onClick={onSearch}>Search</button>
-      {renderResults()}
+    </div>
+    <button type="button" onClick={onSearch}>Search</button>
+    {renderResults()}
 
-    </MainPageLayout>
-  )
+  </MainPageLayout>
+)
 };
 
 export default Home
