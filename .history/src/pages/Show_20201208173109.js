@@ -27,7 +27,12 @@ const initialState = {
 const Show = () => {
   const { id } = useParams();
 
-  const [{ show, isLoading, error }, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = useReducer(reducer, initialState)
+
+  // const [show, setShow] = useState(null);
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [error, setError] = useState(null);
+
   useEffect(() => {
 
     let isMounted = true;
@@ -37,11 +42,15 @@ const Show = () => {
         if (isMounted) {
 
           dispatch({ type: 'FETCH_SUCCESS', show: results })
+
+          setShow(results);
+          setIsLoading(false);
         }
       })
   }).catch(err => {
     if (isMounted) {
-      dispatch({ type: 'FETCH_FAILED', error: err.message })
+      setError(err.message);
+      setIsLoading(false);
     }
 
   });

@@ -28,6 +28,11 @@ const Show = () => {
   const { id } = useParams();
 
   const [{ show, isLoading, error }, dispatch] = useReducer(reducer, initialState)
+
+  // const [show, setShow] = useState(null);
+  // const [isLoading, setIsLoading] = useState(true);
+  // const [error, setError] = useState(null);
+
   useEffect(() => {
 
     let isMounted = true;
