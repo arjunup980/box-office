@@ -20,6 +20,7 @@ function App() {
 
       <Route exact path="/show/:id">
         <Show />
+        <Starred />
       </Route>
 
 
