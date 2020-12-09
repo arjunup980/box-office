@@ -1,7 +1,7 @@
 import React from 'react';
 import IMG_PLACEHOLDER from '../../images/not-found.png';
 import { Star } from '../styled';
-import { MainDataWrapper, Headline, TagList } from './ShowMainData.styled';
+import { MainDataWrapper } from './ShowMainData.styled';
 
 
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import IMG_PLACEHOLDER from '../../images/not-found.png';
-import { CastList } from './Cast.styled';
 
 const Cast = ({ cast }) => {
   return (
@@ -15,7 +14,7 @@ const Cast = ({ cast }) => {
           </div>
           <div className="actor">
             <span>
-              <span className="bold">{person.name} </span>| {character.name} {voice ? '| Voice' : ''}
+              {person.name} | {character.name} {voice ? '| Voice' : ''}
             </span>
           </div>
         </div>
