@@ -21,7 +21,7 @@ const ShowGrid = ({ data }) => {
           if (isStarred) {
             dispatchStarred({ type: 'REMOVE', showId: show.id })
           } else {
-            dispatchStarred({ type: 'ADD', showId: show.id });
+            dispatchStarred({ type: 'ADD', showId: show.id })
           }
         }
 
@@ -33,7 +33,6 @@ const ShowGrid = ({ data }) => {
             image={show.image ? show.image.medium : IMAGE_NOT_FOUND}
             summary={show.summary}
             onStarClick={onStarClick}
-            isStarred={isStarred}
           />
         );
       })}
