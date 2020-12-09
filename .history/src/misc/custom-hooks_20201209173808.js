@@ -1,12 +1,10 @@
-import { useReducer, useEffect, useState } from 'react';
-import { apiGet } from './config';
+import { useReducer, useEffect, useState, apiGet } from 'react';
 
 function showsReducer(prevState, action) {
   switch (action.type) {
     case 'ADD': {
-      return [...prevState, action.showId];
+      return [...prevState, action.showId]
     }
-
     case 'REMOVE': {
       return prevState.filter(showId => showId !== action.showId);
     }
@@ -16,8 +14,9 @@ function showsReducer(prevState, action) {
   }
 }
 
+
 function usePersistedReducer(reducer, initialState, key) {
-  const [state, dispatch] = useReducer(reducer, initialState, initial => {
+  const [state, dispatch] = useReducer(reducer, initialState, (initial) => {
     const persisted = localStorage.getItem(key);
 
     return persisted ? JSON.parse(persisted) : initial;
@@ -35,16 +34,16 @@ export function useShows(key = 'shows') {
 }
 
 export function useLastQuery(key = 'lastQuery') {
-  const [input, setInput] = useState(() => {
+  const [input, setinput] = useState(() => {
     const persisted = sessionStorage.getItem(key);
 
-    return persisted ? JSON.parse(persisted) : '';
+    return persisted ? JSON.parse(persisted) : "";
   });
 
-  const setPersistedInput = newState => {
-    setInput(newState);
+  const setPersistedInput = (newState) => {
+    setinput(newState);
     sessionStorage.setItem(key, JSON.stringify(newState));
-  };
+  }
 
   return [input, setPersistedInput];
 }
@@ -65,11 +64,15 @@ const reducer = (prevState, action) => {
 };
 
 export function useShow(showId) {
-  const [state, dispatch] = useReducer(reducer, {
-    show: null,
-    isLoading: true,
-    error: null,
-  });
+  const [{ show, isLoading, error }, dispatch] = useReducer(
+    reducer,
+    {
+      show: null,
+      isLoading: true,
+      error: null,
+    }
+  );
+
 
   useEffect(() => {
     let isMounted = true;
@@ -90,6 +93,4 @@ export function useShow(showId) {
       isMounted = false;
     };
   }, [showId]);
-
-  return state;
 }

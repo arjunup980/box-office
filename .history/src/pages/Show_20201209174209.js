@@ -1,15 +1,17 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { apiGet } from '../misc/config';
 import ShowMainData from '../components/show/ShowMainData';
 import Details from '../components/show/Details';
 import Seasons from '../components/show/Seasons';
 import Cast from '../components/show/Cast';
-import { ShowPageWrapper, InfoBlock } from './Show.styled';
+import { InfoBlock, ShowPageWrapper } from './Show.styled';
 import { useShow } from '../misc/custom-hooks';
 
 const Show = () => {
   const { id } = useParams();
+
   const { show, isLoading, error } = useShow(id);
 
   if (isLoading) {
