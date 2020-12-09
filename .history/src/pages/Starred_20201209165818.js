@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import MainPageLayout from '../components/MainPageLayout';
 import { useShows } from '../misc/custom-hooks';
-import { apiGet } from '../misc/config';
-import ShowGrid from '../components/show/ShowGrid'
+import { apiGet } from '../misc/config'
 
 const Starred = () => {
   const [starred] = useShows()
