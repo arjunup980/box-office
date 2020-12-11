@@ -3,7 +3,7 @@ import { StyledActorCard } from './ActorCard.styled';
 
 const ActorCard = ({ image, name, gender, country, birthday, deathday }) => (
   <StyledActorCard>
-    <div className="img-wrapper">
+    <div class="img-wrapper">
       <img src={image} alt="actor" />
     </div>
     <h1>
